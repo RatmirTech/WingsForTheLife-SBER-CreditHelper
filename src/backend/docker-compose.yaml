@@ -10,7 +10,7 @@ services:
   application-service:
     container_name: application-service
     build:
-      dockerfile: /ApplicationService/Dockerfile
+      dockerfile: Dockerfile-ApplicationService
     ports:
       - 8080:8080
     image: application-service:latest
@@ -19,7 +19,7 @@ services:
   underwrite-service:
     container_name: underwriter-service
     build:
-      dockerfile: /UnderWriterService/Dockerfile
+      dockerfile: Dockerfile-UnderWriterService
     ports:
       - 8081:8081
     image: underwriter-service:latest

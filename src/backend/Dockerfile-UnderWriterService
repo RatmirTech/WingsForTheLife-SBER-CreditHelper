@@ -1,0 +1,11 @@
+FROM openjdk:17
+
+WORKDIR /application-service
+
+COPY UnderWriterService/src ./src
+COPY UnderWriterService/.mvn ./.mvn
+COPY UnderWriterService/mvnw ./
+COPY UnderWriterService/pom.xml ./
+RUN ./mvnw clean install
+
+CMD ["java","-jar","target/UnderWriterService-0.0.1-SNAPSHOT.jar"]
