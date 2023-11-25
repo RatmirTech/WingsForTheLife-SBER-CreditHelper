@@ -1,0 +1,31 @@
+services:
+  rabbitmq:
+    container_name: applications_queue
+    image: rabbitmq:management
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - wings-for-the-life
+  application-service:
+    container_name: application-service
+    build:
+      dockerfile: /ApplicationService/Dockerfile
+    ports:
+      - 8080:8080
+    image: application-service:latest
+    networks:
+      - wings-for-the-life
+  underwrite-service:
+    container_name: underwriter-service
+    build:
+      dockerfile: /UnderWriterService/Dockerfile
+    ports:
+      - 8081:8081
+    image: underwriter-service:latest
+    networks:
+      - wings-for-the-life
+
+networks:
+  wings-for-the-life:
+    driver: bridge
