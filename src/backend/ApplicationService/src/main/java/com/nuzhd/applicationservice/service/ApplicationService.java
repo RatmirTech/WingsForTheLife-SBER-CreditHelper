@@ -6,11 +6,11 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RabbitService {
+public class ApplicationService {
 
     private final RabbitTemplate rabbitTemplate;
 
-    public RabbitService(RabbitTemplate rabbitTemplate) {
+    public ApplicationService(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
 

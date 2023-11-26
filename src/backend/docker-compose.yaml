@@ -14,6 +14,10 @@ services:
     ports:
       - 8080:8080
     image: application-service:latest
+    environment:
+      - SPRING_RABBITMQ_HOST=rabbitmq
+    depends_on:
+      - rabbitmq
     networks:
       - wings-for-the-life
   underwrite-service:
@@ -25,6 +29,20 @@ services:
     image: underwriter-service:latest
     networks:
       - wings-for-the-life
+    depends_on:
+      - db
+      - rabbitmq
+  db:
+    image: postgres:14.10
+    container_name: postgres
+    environment:
+      POSTGRES_DB: "applications"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
 
 networks:
   wings-for-the-life:

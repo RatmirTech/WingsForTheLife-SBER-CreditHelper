@@ -1,27 +1,29 @@
 package com.nuzhd.applicationservice.controller;
 
 import com.nuzhd.applicationservice.model.CreditApplication;
-import com.nuzhd.applicationservice.service.RabbitService;
+import com.nuzhd.applicationservice.service.ApplicationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/credit")
+@RequestMapping("/api/v1/applications")
 public class CreditApplicationController {
 
-    private final RabbitService rabbitService;
+    private static final Logger log = LoggerFactory.getLogger(CreditApplicationController.class);
 
-    public CreditApplicationController(RabbitService rabbitService) {
-        this.rabbitService = rabbitService;
+    private final ApplicationService applicationService;
+
+    public CreditApplicationController(ApplicationService applicationService) {
+        this.applicationService = applicationService;
     }
 
     @PostMapping("/apply")
     public ResponseEntity<String> placeApplicationInQueue(@RequestBody CreditApplication creditApplication) {
-        System.out.println(creditApplication);
-        rabbitService.pushCreditApplication(creditApplication);
+        applicationService.pushCreditApplication(creditApplication);
         return ResponseEntity.ok("Message sent");
     }
 }

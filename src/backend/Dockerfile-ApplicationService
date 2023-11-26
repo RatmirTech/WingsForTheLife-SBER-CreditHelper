@@ -6,6 +6,6 @@ COPY ApplicationService/src ./src
 COPY ApplicationService/.mvn ./.mvn
 COPY ApplicationService/mvnw ./
 COPY ApplicationService/pom.xml ./
-RUN ./mvnw clean install
+RUN ./mvnw clean install -DskipTests
 
 CMD ["java","-jar","target/ApplicationService-0.0.1-SNAPSHOT.jar"]
