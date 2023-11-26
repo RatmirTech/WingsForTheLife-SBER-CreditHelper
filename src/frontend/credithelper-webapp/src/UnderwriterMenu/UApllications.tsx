@@ -7,7 +7,7 @@ export const UApllications: React.FC = () => {
   const [applications, setApplications] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/v1/applications')
+    fetch('http://localhost:8080/api/v1/credit')
       .then(response => response.json())
       .then(data => setApplications(data))
       .catch(error => console.error(error));
