@@ -1,0 +1,50 @@
+.um-acc-h1{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+}
+.table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .table,
+  .table th,
+  .table td {
+    border: 1px solid #ccc;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.5rem;
+  }
+  
+  .table th {
+    position: relative;
+     cursor: grab;
+        user-select: none;
+  }   
+     .table th:active {
+        cursor: grabbing;
+      }
+  
+  .resizer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    cursor: col-resize;
+    user-select: none;
+  }
+  
+  .resizer:hover,
+  .resizing {
+    border-right: 2px solid blue;
+  }
+  
+  .dragging {
+    background-color: #f0f0f0;
+  }
+  
