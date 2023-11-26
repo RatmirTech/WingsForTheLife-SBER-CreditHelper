@@ -235,6 +235,6 @@ class Risk(Resource):
 
 api.add_resource(Risk, "/sber-getRisk", "/sber-getRisk/")
 if __name__ == "__main__":
-	app.run(port=8081)
+	app.run(port=8084)
 
 #curl -H "Content-Type: application/json" --data @data.json http://localhost:8081/sber-getRisk

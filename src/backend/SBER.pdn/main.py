@@ -6,11 +6,6 @@ import random
 app = Flask(__name__)
 api = Api(app)
 
-
-
-
-
-
 class Pdn(Resource):
 	def post(self):
 		parser = reqparse.RequestParser()
