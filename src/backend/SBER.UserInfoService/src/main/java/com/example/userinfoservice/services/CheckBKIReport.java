@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-//Получает отчет БКИ, запрошивает новый
+//Получает отчет БКИ, запрашивает новый
 //Заглушка
 @Service
 public class CheckBKIReport {
